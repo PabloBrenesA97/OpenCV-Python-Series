@@ -16,7 +16,7 @@ with open("pickles/face-labels.pickle", 'rb') as f:
 	labels = {v:k for k,v in og_labels.items()}
 
 cap = cv2.VideoCapture(0)
-
+print(labels)
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
@@ -30,8 +30,8 @@ while(True):
     	# recognize? deep learned model predict keras tensorflow pytorch scikit learn
     	id_, conf = recognizer.predict(roi_gray)
     	if conf>=4 and conf <= 85:
-    		#print(5: #id_)
-    		#print(labels[id_])
+    		#print(5: #id_) 
+    		#print(labels[id_]) 
     		font = cv2.FONT_HERSHEY_SIMPLEX
     		name = labels[id_]
     		color = (255, 255, 255)
@@ -46,8 +46,8 @@ while(True):
     	end_cord_x = x + w
     	end_cord_y = y + h
     	cv2.rectangle(frame, (x, y), (end_cord_x, end_cord_y), color, stroke)
-    	#subitems = smile_cascade.detectMultiScale(roi_gray)
-    	#for (ex,ey,ew,eh) in subitems:
+    	#eye = eye_cascade.detectMultiScale(roi_gray)
+    	#for (ex,ey,ew,eh) in eye:
     	#	cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
     # Display the resulting frame
     cv2.imshow('frame',frame)

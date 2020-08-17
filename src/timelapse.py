@@ -51,7 +51,7 @@ def images_to_video(out, image_dir, clear_images=True):
         for file in image_list:
             os.remove(file)
 
-images_to_video(out, timelapse_img_dir)
+images_to_video(out, timelapse_img_dir, False)
 # When everything done, release the capture
 cap.release()
 out.release()
